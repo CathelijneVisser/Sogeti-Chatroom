@@ -1,5 +1,5 @@
 # Sogeti-Chatroom
-<!-- picutre site --!>
+
 
 
 ## About & Our Project 📖
