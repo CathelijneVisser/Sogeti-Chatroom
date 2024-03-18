@@ -1,7 +1,14 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
- */
+*/
+const adapter = require("gatsby-adapter-netlify")
+
 module.exports = {
+
+
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
   siteMetadata: {
     title: `Chatroom`,
     siteUrl: `https://www.yourdomain.tld`
