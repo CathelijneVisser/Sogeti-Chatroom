@@ -1,5 +1,5 @@
-# Sogeti-Chatroom
-
+# Chatroom AI
+<img src="https://github.com/Sogeti-Java-Community/CV-chatroom-AI-02-2024/assets/112855711/2a28402a-42a1-4981-9293-ba4c58973811" alt="a picture of the site; it's a mostly black site with a microphone button, the chat, extra info and settings">
 
 
 ## About & Our Project 📖
@@ -11,19 +11,20 @@ Our project is build with the following technologies tools and tech stack:
 * HTML
 * CSS
 * JavaScript
-* Gatsby
-* Socket.io
 * Git
 * Node.js
+* Gatsby
+* Express
 * 
  
 ## Instalation 🎛️
 >  Clone this repository to your code editor.
-
+>  Make sure nodeand git are installed
 >  Open the terminal and use the following commands.
 
 ```
 npm install
+gatsby develop
 ```
    
 ## The use of this Chatroom 💻
