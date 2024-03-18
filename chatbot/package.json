@@ -1,0 +1,35 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "chatroom",
+  "author": "Cathelijne Visser",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "deepspeech": "^0.9.3",
+    "express": "^4.18.3",
+    "gatsby": "^5.13.2",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "pusher": "^5.2.0",
+    "pusher-js": "^8.4.0-rc2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "slugify": "^1.6.6",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4"
+  }
+}

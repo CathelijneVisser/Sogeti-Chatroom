@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+:root {
+    --primary: black;
+    --secondary: white;
+    --primary-accent-color: #FF5F1F;
+    --secondary-accent-color: #ffff00;
+}
+
+body {
+    background-color: var(--primary);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+section {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section + section {
+    overflow: hidden;
+}
+
+:focus {
+    justify-self: center;
+    background-color: var(--secondary-accent-color);
+    box-shadow: 0 0 50px var(--secondary-accent-color);
+}
+
+button, a {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--secondary);     
+    border-radius: 50%;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+}
+
+button:hover, a:hover {
+    justify-self: center;
+    background-color: var(--secondary-accent-color);
+    box-shadow: 0 0 50px var(--secondary-accent-color);
+}
+
+a + a {
+    background-color: var(--primary);
+}
+
+a + a:hover {
+    background-color: var(--primary);
+    fill: var(--secondary-accent-color);
+} 
+
+body > button.active {
+    background-color: var(--primary-accent-color);
+    box-shadow: 0 0 50px var(--primary-accent-color);
+    
+}
+
+p {
+    max-width: 30rem;
+    margin: .5rem;
+}
+
+dl {
+    width: 100vw;
+    height: calc(100vh - 14rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: scroll;
+}
+
+dt, dd {
+    width: fit-content;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+dt {
+    background-color: var(--secondary);
+    
+}
+
+dd {
+    background-color: var(--secondary-accent-color);
+    align-self: flex-end;
+    width: fit-content;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: var(--secondary);
+    margin-top: 1rem;
+}
+
+input {
+    margin-top: .5rem;
+}
