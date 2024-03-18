@@ -20,11 +20,22 @@ Our project is build with the following technologies tools and tech stack:
 ## Instalation 🎛️
 >  Clone this repository to your code editor.
 
->  Open the terminal and use the following commands.
+>  Open the terminal and split it into two terminals.
+>  Use the following commands.
 
 ```
-npm install
+cd chatbot
+npm i
+gatsby develop
 ```
+
+```
+cd socket.io
+npm install express socket.io cors
+npm start
+```
+
+Nu kun je in de browser op poort 500 de site locaal hosten.
    
 ## The use of this Chatroom 💻
 This chatroom is specifically made for people with little to no vission. It has been made completly accessible for screen readers. There is high contrast and big text everywhere for people with low vision. Of course everyone who want to use a chatroom is free to use it.
