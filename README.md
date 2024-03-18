@@ -25,7 +25,7 @@ Our project is build with the following technologies tools and tech stack:
 
 ```
 cd chatbot
-npm i
+npm i;
 gatsby develop
 ```
 
