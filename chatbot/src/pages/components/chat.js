@@ -13,7 +13,9 @@ export default function Chat() {
         socket.on('connect', () => {
           console.log('Connected to server')
         })
-    
+        socket.on('message', async (message, callback) => {
+          console.log(message)
+        })
         socket.on('disconnect', () => {
           console.log('Disconnected from server')
         })
@@ -35,7 +37,7 @@ export default function Chat() {
         const transcript = event.results[0][0].transcript
         console.log(transcript)
         AddMessage("user", transcript)
-        socket.emit("message", transcript)
+        socket.emit("transcript", transcript)
       }
       recognition.onend = () => {
         setIsActive(current => !current)
@@ -47,21 +49,17 @@ export default function Chat() {
   }
   
   //add message
-  const dl = React.useRef(null)                
+  const ul = React.useRef(null)                
   function AddMessage (role, transcript) {
-    if (role === "user"){
-     var dli = document.createElement("dd")             
-
-    }
-    else if (role === "ai") {
-      dli = document.createElement("dt")
-    }
+    var li = document.createElement("li")         
     var p = document.createElement("p")       
-      
+    
+    
+    li.classList.add(role) 
     p.textContent = transcript                
-    dl.current.appendChild(dli)                
-    dli.appendChild(p)                        
-    dl.scrollTop = dl.scrollHeight           
+    ul.current.appendChild(li)                
+    li.appendChild(p)                        
+    ul.scrollTop = ul.scrollHeight           
   }
 
 
@@ -73,12 +71,19 @@ export default function Chat() {
                 </svg>
             </button>
             <section>
-                <dl ref={dl}>
-                <dt><p>Hello how can I help you today?</p></dt>
-                </dl>
+                <ul ref={ul}>
+                <li className='bot'><p>Hello how can I help you today?</p></li>
+                </ul>
             </section>
         </main>
     )
 }
 
-
+export function Head() {
+  return (
+    <>
+      <html lang="en" />
+      <title>Chatbot</title>
+    </>
+  )
+}

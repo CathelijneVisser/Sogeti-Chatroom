@@ -67,13 +67,29 @@ a + a {
 
 a + a:hover {
     background-color: var(--primary);
-    fill: var(--secondary-accent-color);
 } 
 
-body > button.active {
+a + a:focus {
+    background-color: var(--primary);
+}
+
+a + a:hover > svg {
+    fill: var(--secondary-accent-color);
+}
+
+a + a:focus > svg {
+    fill: var(--secondary-accent-color);
+}
+
+
+main > button.active {
     background-color: var(--primary-accent-color);
     box-shadow: 0 0 50px var(--primary-accent-color);
     
+}
+
+svg {
+    fill: var(--secondary);
 }
 
 p {
@@ -81,7 +97,7 @@ p {
     margin: .5rem;
 }
 
-dl {
+ul {
     width: 100vw;
     height: calc(100vh - 14rem);
     display: flex;
@@ -90,18 +106,19 @@ dl {
     overflow-y: scroll;
 }
 
-dt, dd {
+li {
     width: fit-content;
     border-radius: 1rem;
     margin: 1rem;
+    padding: .25rem;
 }
 
-dt {
+.bot {
     background-color: var(--secondary);
     
 }
 
-dd {
+.user {
     background-color: var(--secondary-accent-color);
     align-self: flex-end;
     width: fit-content;
@@ -119,4 +136,14 @@ label {
 
 input {
     margin-top: .5rem;
+}
+
+@media (min-width: 500px) {
+    ul {
+        height: calc(100vh - 20rem);
+    }
+    button {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
 }
