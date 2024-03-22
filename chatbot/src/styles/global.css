@@ -34,13 +34,7 @@ section {
 }
 
 section + section {
-    overflow: hidden;
-}
-
-:focus {
-    justify-self: center;
-    background-color: var(--secondary-accent-color);
-    box-shadow: 0 0 50px var(--secondary-accent-color);
+    overflow: scroll;
 }
 
 button, a {
@@ -55,30 +49,8 @@ button, a {
     margin: 1rem;
 }
 
-button:hover, a:hover {
-    justify-self: center;
-    background-color: var(--secondary-accent-color);
-    box-shadow: 0 0 50px var(--secondary-accent-color);
-}
-
 a + a {
     background-color: var(--primary);
-}
-
-a + a:hover {
-    background-color: var(--primary);
-} 
-
-a + a:focus {
-    background-color: var(--primary);
-}
-
-a + a:hover > svg {
-    fill: var(--secondary-accent-color);
-}
-
-a + a:focus > svg {
-    fill: var(--secondary-accent-color);
 }
 
 
@@ -129,6 +101,11 @@ article {
     flex-direction: column;
 }
 
+/*****************************************************************************************************************/
+/*settings*/
+/*****************************************************************************************************************/
+
+
 label {
     color: var(--secondary);
     margin-top: 1rem;
@@ -137,6 +114,43 @@ label {
 input {
     margin-top: .5rem;
 }
+
+/*****************************************************************************************************************/
+/*Focus & hover*/
+/*****************************************************************************************************************/
+
+:focus {
+    justify-self: center;
+    background-color: var(--secondary-accent-color);
+    box-shadow: 0 0 50px var(--secondary-accent-color);
+}
+
+button:hover, a:hover {
+    justify-self: center;
+    background-color: var(--secondary-accent-color);
+    box-shadow: 0 0 50px var(--secondary-accent-color);
+}
+
+a + a:hover {
+    background-color: var(--primary);
+} 
+
+a + a:focus {
+    background-color: var(--primary);
+}
+
+a + a:hover > svg {
+    fill: var(--secondary-accent-color);
+}
+
+a + a:focus > svg {
+    fill: var(--secondary-accent-color);
+}
+
+/*****************************************************************************************************************/
+/*media queries*/
+/*****************************************************************************************************************/
+
 
 @media (min-width: 500px) {
     ul {

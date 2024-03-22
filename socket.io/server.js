@@ -1,11 +1,9 @@
-import express, { response } from 'express'
-import OpenAI from "openai"
-
-const dotenv = require('dotenv')
-const express = require('express')
-const http = require('http')
-const socketIo = require('socket.io')
-const cors= require('cors')
+import OpenAI from 'openai'
+import dotenv from 'dotenv'
+import { Server } from 'socket.io'
+import http from 'http'
+import cors from 'cors'
+import express from 'express'
 
 dotenv.config()
 
@@ -16,31 +14,39 @@ app.use(cors({
 }))
 
 const server = http.createServer(app)
-const io = socketIo(server, {
+const io = new Server(server, {
   cors: {
     origin: '*',
   }
 })
 
-console.log(process.env.OPENAI_API_KEY)
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-})
-const openai = new OpenAI(configuration)
+const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY})
+
+let conversationHistory = []
+const historySize = 20
 
 io.on('connection', (client) => {
     console.log('New user connected')
 
-    client.on('transcript', (transcript) => {
+    client.emit('history', conversationHistory)
+    client.on('transcript', async(transcript, callback) => {
       console.log("question asked", transcript)
-      async function main() {
+      try{
+        while ( conversationHistory.length > historySize) {
+          conversationHistory.shift()
+        }
+        conversationHistory.push({role: 'user', content: transcript})
         const completion = await openai.chat.completions.create({
-          messages: [{ role: "system", content: "You are a helpful assistant." }],
           model: "gpt-3.5-turbo",
-        });
-      
-        console.log(completion.choices[0]);
-      }
+          messages: conversationHistory,
+        })
+        const response = completion.data.choices[0].message.content
+        console.log(response)
+        client.emit('response', response)
+        callback()
+        }catch (error) {
+          console.error(error)
+        }
     })
   
     client.on('disconnect', () => {
