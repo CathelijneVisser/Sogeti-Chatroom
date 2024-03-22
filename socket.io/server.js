@@ -23,7 +23,7 @@ const io = new Server(server, {
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY})
 
 let conversationHistory = []
-const historySize = 20
+const historySize = 20 //20 is max amount of messages in history
 
 io.on('connection', (client) => {
     console.log('New user connected')
