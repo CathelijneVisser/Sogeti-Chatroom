@@ -17,7 +17,30 @@ export default function Chat() {
 
   //mic on and off
   const [isActive, setIsActive] = React.useState(false)
+  
+  function micOnOff () {
+    if (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition) {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
+      recognition.lang = 'en-US'
+      recognition.start()
+      recognition.onstart = () => { micOnStartEnd () }
+      recognition.onresult = (event) => { micOnResult (event) }
+      recognition.onend = () => { micOnStartEnd () }
+    } else {
+      console.log("speech recognition not supported")
+    }
+  }
+  
+  function micOnStartEnd () {
+    setIsActive(current => !current)
+  }
 
+  function micOnResult (event) {
+    const transcript = event.results[0][0].transcript
+    console.log(transcript)
+    AddMessage("user", transcript)
+    socket.emit("transcript", transcript)
+  }
 
 
   //add message

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import '../styles/global.css'
 
-import Chat from "./components/chat.js"
+
 
 
 const IndexPage = ({location}) => {
@@ -16,7 +16,6 @@ const IndexPage = ({location}) => {
   //html
   return (
     <body style={layout}>
-      <Chat></Chat>   
       <section>
         <Link to='/info' title='go to extra info' > 
           <svg width="40" height="75" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
