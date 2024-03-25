@@ -41,7 +41,7 @@ io.on('connection', (client) => {
           messages: conversationHistory,
         })
         const response = completion.data.choices[0].message.content
-        console.log(response)
+        console.log(completion.choices[0])
         client.emit('response', response)
         callback()
         }catch (error) {
