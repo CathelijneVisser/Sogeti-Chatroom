@@ -19,15 +19,17 @@ export default function Chat() {
   const [isActive, setIsActive] = React.useState(false)
   
   function micOnOff () {
-    if (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition) {
-      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
-      recognition.lang = 'en-US'
-      recognition.start()
-      recognition.onstart = () => { micOnStartEnd () }
-      recognition.onresult = (event) => { micOnResult (event) }
-      recognition.onend = () => { micOnStartEnd () }
-    } else {
-      console.log("speech recognition not supported")
+    if (typeof window !== 'undefined') {
+      if (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition) {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
+        recognition.lang = 'en-US'
+        recognition.start()
+        recognition.onstart = () => { micOnStartEnd () }
+        recognition.onresult = (event) => { micOnResult (event) }
+        recognition.onend = () => { micOnStartEnd () }
+      } else {
+        console.log("speech recognition not supported")
+      }
     }
   }
   
